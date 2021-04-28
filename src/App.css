@@ -36,3 +36,33 @@
     transform: rotate(360deg);
   }
 }
+
+.collapse-btn {
+  text-decoration: none;
+  border-bottom: dashed black 1px;
+}
+.collapse-btn:active,
+.collapse-btn:visited {
+  color: black;
+}
+
+.collapsed-content .content {
+  opacity: 0;
+  max-height: 0;
+  overflow: auto;
+}
+
+.content {
+  opacity: 1;
+  max-height: 700px;
+  margin-bottom: 15px;
+  transition: max-height 0.25s ease;
+}
+
+.collapsed-block {
+  width: auto;
+  padding: 15px;
+  margin: 10px;
+  border: solid gray 1px;
+  border-radius: 7px;
+}

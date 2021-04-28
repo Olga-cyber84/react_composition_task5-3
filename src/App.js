@@ -1,24 +1,30 @@
-import logo from './logo.svg';
 import './App.css';
+import React, {useState} from 'react';
+import Collapse from './components/Collapse';
+import Paragraph from './components/Paragraph';
 
 function App() {
+  const [isExpanded, setState] = useState(false);
+  const handleExpandedChange = () => {
+    setState(prev => !prev)
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Collapse
+        collapsedLabel='Развернуть'
+        expandedLabel='Свернуть'
+        isExpanded={isExpanded}
+        onExpandedChange={handleExpandedChange}
+      >
+        <Paragraph className="">
+            Альфа-Банк, основанный в 1990 году, является универсальным банком,
+            осуществляющим все основные виды банковских операций, представленных
+            на рынке финансовых услуг, включая обслуживание частных и корпоративных
+            клиентов, инвестиционный банковский бизнес, торговое финансирование и т.д.
+        </Paragraph>
+      </Collapse>
+    </>
   );
 }
 
